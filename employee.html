@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee List</title>
+    <style>
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        form {
+            width: 40%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 8px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center;">Register Employee</h2>
+
+    <!-- Employee Registration Form -->
+    <form method="POST">
+        <input type="text" name="emp_id" placeholder="Employee ID" required><br>
+        <input type="text" name="emp_name" placeholder="Employee Name" required><br>
+        <input type="text" name="designation" placeholder="Designation" required><br>
+        <input type="text" name="department" placeholder="Department" required><br>
+        <input type="submit" value="Add Employee">
+    </form>
+
+    <h2 style="text-align: center;">Employee List from MySQL Database</h2>
+
+    <!-- Employee List Table -->
+    <table>
+        <tr>
+            <th>Serial</th>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Department</th>
+        </tr>
+        {% for emp in employees %}
+        <tr>
+            <td>{{ emp[0] }}</td>
+            <td>{{ emp[1] }}</td>
+            <td>{{ emp[2] }}</td>
+            <td>{{ emp[3] }}</td>
+            <td>{{ emp[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
